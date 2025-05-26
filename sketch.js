@@ -1,4 +1,4 @@
-// 🌍 Weather and interactivity
+// Weather and interactivity
 let weatherCondition = 'loading';
 let flowers = [];
 
@@ -7,12 +7,12 @@ function setup() {
   angleMode(DEGREES);
   noLoop();
 
-  // ✅ Open-Meteo API – real-time weather for London
+  // Open-Meteo API – real-time weather for London
   let url = 'https://api.open-meteo.com/v1/forecast?latitude=35.8997&longitude=14.5146&current_weather=true';
   loadJSON(url, gotWeather);
 }
 
-// 🔄 Parse weather code from Open-Meteo
+// Parse weather code from Open-Meteo
 function gotWeather(data) {
   if (data && data.current_weather) {
     const code = data.current_weather.weathercode;
@@ -32,7 +32,7 @@ function gotWeather(data) {
 function draw() {
   setBackgroundFromWeather();
 
-  // 🌳 Draw tree using Recursion and Fractals
+  // Draw tree using Recursion and Fractals
   push();
   translate(width / 2, height);
   drawFractalTreeRecursive(80, 25, 2); // initial length, angle, thickness
@@ -47,7 +47,7 @@ function draw() {
   text("Weather in Malta: " + weatherCondition, width - 10, 10);
 }
 
-// 🌿 Recursion and Fractals: Draws a tree with self-similar recursive branches
+// Recursion and Fractals: Draws a tree with self-similar recursive branches
 function drawFractalTreeRecursive(len, angle, thick) {
   stroke(80, 42, 42);
   strokeWeight(thick);
@@ -71,7 +71,7 @@ function drawFractalTreeRecursive(len, angle, thick) {
   }
 }
 
-// 🖱️ Plant a flower where clicked
+// Plant a flower where clicked
 function mousePressed() {
   if (mouseY <= height) {
     flowers.push({
@@ -84,7 +84,7 @@ function mousePressed() {
   }
 }
 
-// 🌸 Draw all planted flowers
+// Draw all planted flowers
 function drawFlowers() {
   noStroke();
   for (let f of flowers) {
@@ -93,7 +93,7 @@ function drawFlowers() {
   }
 }
 
-// 🎨 Set background color based on weather condition
+// Set background color based on weather condition
 function setBackgroundFromWeather() {
   if (weatherCondition === 'clear') {
     background(135, 206, 250); // Sunny
